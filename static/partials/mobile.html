@@ -1,0 +1,80 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref="mobiles">BuyingIQ</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="mCtrl.search" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default" ng-click="mCtrl.getRecords()">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="filter-tags">
+        <div ng-if="folder.uri != 'categories'" class="folder" ng-repeat="folder in mCtrl.data.folders">
+            <div class="head">{{folder.name}}</div>
+            <div ng-repeat="facet in folder.facets">
+                <label class="facet">
+                    <input type="checkbox" ng-model="facet.is_selected" ng-change="mCtrl.getFacets()">
+                    <a title="{{facet.label}}">{{facet.label}}</a>
+                    <span class="count">({{facet.count}})</span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="filter-results">
+        <div ng-if="mCtrl.data.products.length > 0" class="filter-results-head">
+            <span>Showing 1-{{mCtrl.data.products.length}} of {{mCtrl.data.total}} Results</span>
+
+            <div class="pull-right">
+                <select ng-options="item.id as item.value for item in mCtrl.sorting" ng-model="mCtrl.sortedAs"
+                        ng-change="mCtrl.getOrder()"></select>
+            </div>
+        </div>
+        <div class="row" ng-repeat="eachrow in mCtrl.data.productData">
+            <div class="col-md-3" ng-repeat="product in eachrow">
+                <div class="result-img">
+                    <a href="{{product.url}}" title="{{product.name}}" target="_blank">
+                        <img ng-src="{{product.images_o.l}}">
+                    </a>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="result-details">
+                    <a class="result-name" href="{{product.url}}" title="{{product.name}}" target="_blank">{{product.name}}</a>
+
+                    <div class="result-score">
+                        <div class="rating-3 home-review-rating hidden-xs">{{product.avg_rating}}</div>
+                        <div class="clearfix"></div>
+                        <div class="result-votes hidden-xs">{{product.review_count}} Votes</div>
+                    </div>
+                    <div class="result-price-block">
+                        <div>BEST PRICE <span class="result-price">Rs. {{product.min_price_str}}</span></div>
+                        <div>{{product.deal_count}} DEALS</div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="result-keyfeatures">
+                        <ul>
+                            <li ng-repeat="feature in product.key_features | limitTo : 6">
+                                <span ng-bind="feature[2]"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="mCtrl.data.products.length == 0">No results found</div>
+</div>
+

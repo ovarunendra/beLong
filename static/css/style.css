@@ -1,0 +1,147 @@
+/* * css for loading bar * */
+#loading-bar .bar {
+    -webkit-transition: width 350ms;
+    -moz-transition: width 350ms;
+    -o-transition: width 350ms;
+    transition: width 350ms;
+
+    background: #29d;
+    position: fixed;
+    z-index: 10002;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-bottom-right-radius: 1px;
+    border-top-right-radius: 1px;
+}
+
+/* Fancy blur effect */
+#loading-bar .peg {
+    position: absolute;
+    width: 70px;
+    right: 0;
+    top: 0;
+    height: 4px;
+    opacity: .45;
+    -moz-box-shadow: #29d 1px 0 6px 1px;
+    -ms-box-shadow: #29d 1px 0 6px 1px;
+    -webkit-box-shadow: #29d 1px 0 6px 1px;
+    box-shadow: #29d 1px 0 6px 1px;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+}
+
+.filter-tags {
+    float: left;
+}
+.filter-results {
+    width: 80%;
+    float: right;
+}
+.filter-results-head {
+    background-color: #efefef;
+    color: #2f2f2f;
+    padding-left: 20%;
+}
+.folder {
+    max-height: 250px;
+    overflow: auto;
+}
+.filter-tags .folder .head {
+    background-color: #efefef;
+    font-weight: bold;
+    padding: 8px 0 8px 11px;
+}
+.filter-tags .facet {
+    display: block;
+    padding: 7px 0 7px 8px;
+    margin: 0;
+    border-top: 1px solid #efefef;
+    color: #035db1;
+    font-weight: normal;
+    cursor: pointer;
+}
+.filter-tags .facet .count {
+    font-size: 11px;
+    color: #9f9f9f;
+}
+.result-row {
+    border-left: 1px solid #efefef;
+}
+
+.result-img {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 0 0 0;
+    line-height: 200px;
+}
+.result-name {
+    font-size: 14px;
+    color: #0259a9;
+    margin: 15px 0 0 0;
+    height: 36px;
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+}
+.result-name:hover {
+    color: #ff7d02;
+}
+a:hover, a:focus {
+    text-decoration: none;
+}
+.result-score {
+    float: right;
+}
+.result-price-block {
+    min-height: 45px;
+    font-size: 11px;
+    color: #636363;
+    float: left;
+    margin-top: 3px;
+}
+.home-review-rating {
+    float: right;
+    font-size: 16px;
+    color: #fff;
+    width: 40px;
+    height: 29px;
+    text-align: center;
+    padding-top: 4px;
+    border-radius: 2px;
+}
+.rating-3 {
+    background-color: #c0da29;
+}
+.result-votes {
+    font-size: 11px;
+    color: #979696;
+    padding: 5px 0 0 0;
+}
+.result-price-block {
+    min-height: 45px;
+    font-size: 11px;
+    color: #636363;
+    float: left;
+    margin-top: 3px;
+}
+.result-price {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #202020;
+    padding: 0 0 10px 3px;
+}
+.result-keyfeatures ul{
+    padding-top: 6px;
+    margin-left: 15px;
+    font-size: 11px;
+    color: #979696;
+}
+.facet a {
+    text-decoration: none;
+    color: #035db1!important;
+}
